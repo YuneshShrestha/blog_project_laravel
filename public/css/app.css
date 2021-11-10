@@ -10019,3 +10019,20 @@ h3 {
     border-color: #dee2e6;
   }
 }
+footer .footer-links {
+  color: grey;
+  list-style: none;
+}
+footer .footer-links li:first-child {
+  color: black;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+footer .footer-underline {
+  background-color: #a09898;
+  height: 0.8px;
+  width: 100%;
+}
+footer .footer-copy_right {
+  color: grey;
+}

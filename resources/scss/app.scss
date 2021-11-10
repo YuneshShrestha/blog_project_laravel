@@ -6,3 +6,22 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+footer{
+    .#{&}-links{
+        color: grey;
+        list-style: none;
+        & li:first-child{
+            color: black;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+    }
+   .#{&}-underline{
+        background-color: rgb(160, 152, 152);
+        height: 0.8px;
+        width: 100%;
+   }
+   .#{&}-copy_right{
+        color: grey;
+   }
+}
