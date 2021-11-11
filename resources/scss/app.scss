@@ -43,6 +43,7 @@ footer{
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    letter-spacing: 2px;
     #{&}_btn{
         @include center;
     }
@@ -140,3 +141,7 @@ footer{
     }
 }
 // :::::BLOG PAGE END
+// create form
+.create_title{
+    @include title;
+}
