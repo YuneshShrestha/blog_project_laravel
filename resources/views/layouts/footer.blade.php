@@ -1,5 +1,5 @@
-<footer>
-    <div class="py-4 bg-white shadow-sm">
+<footer class="pt-5">
+    <div class="py-4 bg-dark shadow-sm">
         <div class="container">
             <div>
                 <div class="row">
