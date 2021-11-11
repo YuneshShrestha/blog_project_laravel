@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts= Post::orderBy('updated_at','DESC')->get();
+        $posts= Post::orderBy('updated_at','DESC')->paginate(1);
         return view('blog.index')->with('posts', $posts);
     }
 
@@ -64,9 +64,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+        return view('blog.show',compact('post'));
     }
 
     /**
@@ -75,9 +76,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+        return view('blog.edit',compact('post'));
     }
 
     /**
