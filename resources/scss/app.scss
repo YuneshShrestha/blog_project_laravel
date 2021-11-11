@@ -6,7 +6,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import 'center';
+@import 'mixin';
 // Footer Section
 footer{
     .#{&}-links{
@@ -30,6 +30,9 @@ footer{
 }
 // End Footer section
 
+// INDEX PAGE ::::::::
+
+
 // Hero Section
 .hero{
     width: 100%;
@@ -52,9 +55,7 @@ footer{
 
     &_text{
         #{&}_header{
-            font-weight: bold;
-            font-size: 24px;
-            padding-bottom: 20px;
+            @include title;
 
         }
         #{&}_para1{
@@ -94,9 +95,7 @@ footer{
         padding: 20px;
     }
     #{&}_title{
-        font-weight: bold;
-        font-size: 24px;
-        padding-bottom: 20px;
+       @include title;
     }
     #{&}_text{
         padding-bottom: 20px;
@@ -118,3 +117,26 @@ footer{
      }
 }
 // Recent posts end
+
+// :::::INDEX PAGE END
+
+// BLOG PAGE ::::::
+.blog{
+    &_posts{
+        @include title;
+    }
+    #{&}_title{
+        font-weight: bolder;
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
+    #{&}_by{
+        color: $gray-600;
+        padding-bottom: 20px;
+    }
+    #{&}_description{
+        font-size: 16px;
+        padding-bottom: 20px;
+    }
+}
+// :::::BLOG PAGE END

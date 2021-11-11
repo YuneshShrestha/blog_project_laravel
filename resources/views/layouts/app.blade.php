@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <a class="nav-link" href="/">Home</a>
-                        <a class="nav-link" href="/">Blog</a>
+                        <a class="nav-link" href="/blog">Blog</a>
 
 
                         @guest
