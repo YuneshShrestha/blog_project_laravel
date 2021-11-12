@@ -21,7 +21,7 @@
               @enderror
               <div class="form-group">
                   <input id="image" class="form-control" type="file" name="image">
-                  <p> Current Image:</p>
+                  <p>Current Image:</p>
                   <img class="img-thumbnail" src="{{ asset($post->image_path) }}" style="width: 200px; height: 200px; object-fit:cover;">
               </div>
               <div>

@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts= Post::orderBy('updated_at','DESC')->paginate(1);
+        $posts= Post::orderBy('updated_at','DESC')->paginate(5);
         return view('blog.index')->with('posts', $posts);
     }
 
@@ -55,7 +55,11 @@ class PostsController extends Controller
        $post->slug = $slug;
        $post->user_id = auth()->user()->id;
        $post->save();
-       return redirect('/blog')->with('message', 'Post has been added');
+       $message = [
+        'message'=>'Post has been added',
+        'message_type'=>'post'
+       ];
+       return redirect('/blog')->with('message', $message);
     }
 
     /**
@@ -89,9 +93,28 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $request->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+            'image'=>'mimes:jpeg,jpg,png|max:5048'
+        ]);
+        $post = Post::where('slug',$slug)->first();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        if($request->hasFile('image')){
+            $temp = $request->image;
+            $name =  time() . $temp->getClientOriginalName();
+            $temp->move('images/',$name);
+            $post->image_path = 'images/'.$name;
+        }
+        $post->save();
+        $message = [
+            'message'=>'Post has been updated',
+            'message_type'=>'update'
+           ];
+        return redirect('/blog')->with('message', $message);  
     }
 
     /**
@@ -100,8 +123,14 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+       $post = Post::where('slug',$slug)->first();
+       $post->delete();
+       $message = [
+        'message'=>'Post has been deleted',
+        'message_type'=>'delete'
+       ];
+       return redirect('/blog')->with('message', $message);
     }
 }
