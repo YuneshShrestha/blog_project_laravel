@@ -2,6 +2,16 @@
 @section('content')
     <div class="container blog pt-4">
         <div class="text-center blog_posts">Blog Posts</div>
+        <form action="" method="GET">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search by name or post title..." aria-label="Recipient's username with two button addons">
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-recycle"></i></button>
+                  </div>
+            </div>
+            
+        </form>
         @if (Auth::check())
             <a class="btn btn-outline-primary w-100 rounded-pill" href="/blog/create">Create Post</a>
         @endif
