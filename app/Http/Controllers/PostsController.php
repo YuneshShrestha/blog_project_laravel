@@ -17,10 +17,28 @@ class PostsController extends Controller
         $this->middleware('auth',['except'=>['index', 'show']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts= Post::orderBy('updated_at','DESC')->paginate(5);
-        return view('blog.index')->with('posts', $posts);
+        $search = $request['search'] ?? "";
+        // dd($request);
+       
+        if($search != ""){
+            // $posts= Post::WhereHas('user', function ($query) {
+                
+            //     $query->where('name', 'LIKE', "%yunesh%");
+            // })->paginate(5);
+
+            $posts= Post::where('title', 'LIKE', "%$search%")->paginate(5);
+            
+            // $posts= Post::orderBy('updated_at','DESC')->paginate(5);
+        }
+        else{
+            // return $search;
+            $posts= Post::orderBy('updated_at','DESC')->paginate(5);
+        }
+        $data = compact('posts','search');
+        return view('blog.index')->with($data);
+
     }
 
     /**
@@ -137,4 +155,7 @@ class PostsController extends Controller
        ];
        return redirect('/blog')->with('message', $message);
     }
+    // public function search(){
+    //     return 'search';
+    // }
 }

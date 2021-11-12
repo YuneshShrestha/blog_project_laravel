@@ -2,12 +2,15 @@
 @section('content')
     <div class="container blog pt-4">
         <div class="text-center blog_posts">Blog Posts</div>
-        <form action="" method="GET">
+        <form action="/blog" method="get">
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search by name or post title..." aria-label="Recipient's username with two button addons">
-                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
-                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-recycle"></i></button>
+                    <input type="search" class="form-control" placeholder="Search by name or post title..." name= "search" value="{{ $search }}">
+                    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+                    <a href="/blog">
+                        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-recycle"></i></button>
+                    </a>
+                   
                   </div>
             </div>
             
