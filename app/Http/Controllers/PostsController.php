@@ -63,7 +63,7 @@ class PostsController extends Controller
        $request->validate([
            'title'=> 'required',
            'description'=> 'required',
-           'image'=>'bail|required|mimes:jpeg,jpg,png|max:5048'
+           'image'=>'required|mimes:jpeg,jpg,png|max:5048'
        ]);
        $post = new Post();
        $post->title = $request->title;

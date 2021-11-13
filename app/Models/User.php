@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'picture',
     ];
 
     /**
@@ -43,5 +44,15 @@ class User extends Authenticatable
     ];
     public function post(){
         return $this->hasMany(Post::class);
+    }
+    public function getPictureAttribute($value)
+    {
+        if($value)
+        {
+            return asset('users/images/'.$value);
+        }
+        else{
+            return asset('users/images/no-image.png');
+        }
     }
 }

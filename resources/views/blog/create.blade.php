@@ -5,14 +5,14 @@
         <form action="/blog" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Title..." name="title">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Title..." name="title" value="{{ old('title') }}">
                 <label for="title">Title</label>
              </div>
              @error('title')
                 <p class="text-danger">{{ $message }}</p>
              @enderror
               <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Description..." id="floatingTextarea2" style="height: 100px" name="description"></textarea>
+                <textarea class="form-control" placeholder="Description..." id="floatingTextarea2" style="height: 100px" name="description">{{ old('description') }}</textarea>
                 <label for="floatingTextarea2">Description</label>
               </div>
               @error('description')
