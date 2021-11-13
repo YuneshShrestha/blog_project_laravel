@@ -23,12 +23,13 @@ class PostsController extends Controller
         // dd($request);
        
         if($search != ""){
-            // $posts= Post::WhereHas('user', function ($query) {
-                
-            //     $query->where('name', 'LIKE', "%yunesh%");
-            // })->paginate(5);
+            
+            $posts= Post::where('title', 'LIKE', "%$search%")->orWhereHas('user', function ($query) use ($search) {
+                $query->where('name', 'LIKE', "%$search%");
+             }
+            )->paginate(5);
 
-            $posts= Post::where('title', 'LIKE', "%$search%")->paginate(5);
+            // $posts= Post::where('title', 'LIKE', "%$search%")->paginate(5);
             
             // $posts= Post::orderBy('updated_at','DESC')->paginate(5);
         }
