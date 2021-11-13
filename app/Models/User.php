@@ -49,7 +49,7 @@ class User extends Authenticatable
     {
         if($value)
         {
-            return asset('users/images/'.$value);
+            return asset($value);
         }
         else{
             return asset('users/images/no-image.png');
