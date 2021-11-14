@@ -94,7 +94,8 @@ class PostsController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        return view('blog.show',compact('post'));
+        print_r($post['image_path']);
+        // return view('blog.show',compact('post'));
     }
 
     /**

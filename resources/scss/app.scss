@@ -176,25 +176,25 @@ footer{
 // :::show data end
 
 // Modal Start
-.modal-dialog{
+.blog-show-modal-dialog{
     background-color: transparent;
 }
-.modal-content{
+.blog-show-modal-content{
     background-color: transparent;
     border: 0 transparent;
 }
-.modal_image{
+.blog-show-modal_image{
     object-fit: cover; 
     width: 100%; 
     height: 100%;
     position: relative;
     overflow: hidden;
 }
-.modal_button{
+.blog-show-modal_button{
     color: white;
     font-size: 20px;
 }
-.modal_closing_btn{
+.blog-show-modal_closing_btn{
     position: absolute; 
     z-index: 2;
     right: 6%;

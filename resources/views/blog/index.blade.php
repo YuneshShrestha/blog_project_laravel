@@ -34,6 +34,7 @@
         @foreach ($posts as $post)
             <div class="row pt-4">
                 <div class="col-md-6 col-12 my-auto">
+                    <p>{{ asset($post->image_path) }}</p>
                     <img src="{{ asset($post->image_path) }}" class="blog_image img-thumbnail" alt="{{ $post->slug . ' image' }}">
                 </div>
                 <div class="col-md-6 col-12 my-auto">

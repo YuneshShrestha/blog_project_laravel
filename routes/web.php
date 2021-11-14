@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[PageController::class,'index']);
-
+Route::put('/update_profile/{id}',[PageController::class,'update_profile']);
 Auth::routes();
 
 Route::resource('/blog',PostsController::class);

@@ -41,8 +41,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <a class="nav-link" href="/">Home</a>
-                        <a class="nav-link" href="/blog">Blog</a>
+                        <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}" href="/">Home</a>
+                        <a class="nav-link {{ (request()->is('blog')) ? 'active' : '' }}" href="/blog">Blog</a>
 
 
                         @guest
@@ -61,28 +61,60 @@
                             <li class="nav-item dropdown ml-2">
                                     {{-- <img src="{{ Auth::user()->picture }}" class="rounded-circle" alt="" style="width: 20px; height: 20px;"> --}}
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <img src="{{ Auth::user()->picture }}" class="rounded-circle" alt="" style="width: 25px; height: 25px;"> {{ Auth::user()->name }}
+                                        <img src="{{ Auth::user()->picture }}" class="rounded-circle" alt="" style="width: 25px; height: 25px; object-fit: cover; object-position: center;"> {{ Auth::user()->name }}
                                     </a>
-
+                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#updateProfile">
+                                        Update Profile Picture
+                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+                                
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-
+        {{-- @if (session()->has('message'))
+            <p>{{ $message }}</p>
+        @endif --}}
        <div>
+        <div class="modal fade" id="updateProfile" tabindex="-1" aria-labelledby="updateProfileLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="updateProfileLabel">Update Profile</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/update_profile/{{ auth()->id() }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                      <div class="form-group">
+                          <label for="image">Select Image:</label>
+                          <input id="image" class="form-control" type="file" name="image">
+
+                      </div>
+                      
+                      <div class="d-flex justify-content-end pt-2">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
             @yield('content')
        </div>
         <div>

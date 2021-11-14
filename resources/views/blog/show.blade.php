@@ -14,14 +14,14 @@
         </div>
     </div>
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
+        <div class="modal-dialog blog-show-modal-dialog modal-dialog-centered">
+          <div class="blog-show-modal-content">
             <div class="modal-body">
-              <div class="modal_closing_btn">
-                    <i class="fas fa-times modal_button" data-bs-dismiss="modal" aria-label="Close"></i>
+              <div class="blog-show-modal_closing_btn">
+                    <i class="fas fa-times blog-show-modal_button" data-bs-dismiss="modal" aria-label="Close"></i>
               </div>
 
-              <img src="{{ asset($post->image_path) }}" alt="" class="modal_image">
+              <img src="{{ asset($post->image_path) }}" alt="" class="blog-show-modal_image">
             </div>
           </div>
         </div>

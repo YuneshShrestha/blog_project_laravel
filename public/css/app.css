@@ -10163,16 +10163,16 @@ footer .footer-copy_right {
   padding-bottom: 20px;
 }
 
-.modal-dialog {
+.blog-show-modal-dialog {
   background-color: transparent;
 }
 
-.modal-content {
+.blog-show-modal-content {
   background-color: transparent;
   border: 0 transparent;
 }
 
-.modal_image {
+.blog-show-modal_image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -10181,12 +10181,12 @@ footer .footer-copy_right {
   overflow: hidden;
 }
 
-.modal_button {
+.blog-show-modal_button {
   color: white;
   font-size: 20px;
 }
 
-.modal_closing_btn {
+.blog-show-modal_closing_btn {
   position: absolute;
   z-index: 2;
   right: 6%;
