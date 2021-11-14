@@ -45,14 +45,17 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany(Post::class);
     }
-    public function getPictureAttribute($value)
-    {
-        if($value)
-        {
-            return $value;
-        }
-        else{
-            return 'users/images/no-image.png';
-        }
-    }
+
+    // Setting Default image 
+    // Middle name getnameAttribute should be euqal to the name of picture column
+    // public function getPictureAttribute($value)
+    // {
+    //     if($value)
+    //     {
+    //         return $value;
+    //     }
+    //     else{
+    //         return 'users/images/no-image.png';
+    //     }
+    // }
 }
