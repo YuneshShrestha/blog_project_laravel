@@ -10192,3 +10192,28 @@ footer .footer-copy_right {
   right: 6%;
   top: 10%;
 }
+
+.user_profile {
+  display: flex;
+  position: relative;
+}
+.user_profile .side_bar {
+  width: 10vw;
+  height: 100vh;
+  background-color: yellow;
+  position: fixed;
+  z-index: -1;
+}
+.user_profile .posts {
+  width: 100%;
+  height: 100vh;
+  background-color: indigo;
+  margin-left: 10vw;
+  z-index: -3;
+}
+.user_profile .posts .posts_container {
+  width: 70%;
+  margin: 0 auto;
+  background-color: lawngreen;
+  height: 100%;
+}

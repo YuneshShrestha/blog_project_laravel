@@ -58,10 +58,11 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown ml-2">
+                            <li class="nav-item dropdown ml-2 d-none d-md-flex">
                                     {{-- <img src="{{ Auth::user()->picture }}" class="rounded-circle" alt="" style="width: 20px; height: 20px;"> --}}
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <img src="{{ asset(Auth::user()->picture) }}" class="rounded-circle" alt="" style="width: 25px; height: 25px; object-fit: cover; object-position: center;"> {{ Auth::user()->name }}
+                                        <img src="{{ asset(Auth::user()->picture) }}" class="rounded-circle" alt="" style="width: 25px; height: 25px; object-fit: cover; object-position: center;"> 
+                                        {{ Auth::user()->name }}
                                     </a>
                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -80,6 +81,13 @@
                                     </form>
                                 </div>
                                 
+                            </li>
+                            <li class="nav-item d-md-none d-flex">
+                                <a class = "nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                </a>
                             </li>
                         @endguest
                     </ul>

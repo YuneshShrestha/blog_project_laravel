@@ -8,6 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'mixin';
 // Footer Section
+
 footer{
     .#{&}-links{
         color: $gray-600;
@@ -201,4 +202,34 @@ footer{
     top: 10%;
 }
 // End Modal
+
+// Users Page Start
+.user_profile{
+    display: flex;
+    position: relative;
+    .side_bar{
+        width: 10vw;
+        height: 100vh;
+        background-color: yellow;
+        position: fixed;
+        z-index: -1;
+        
+    }
+    .posts{
+        width: 100%;
+        height: 100vh;
+        background-color: indigo;
+        margin-left: 10vw;
+        z-index: -3;
+        .posts_container{
+            width: 70%;
+            margin: 0 auto;
+            background-color: lawngreen;
+            height: 100%;
+        }
+    }
+}
+// End Users Page
+
+
 

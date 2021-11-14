@@ -23,3 +23,4 @@ Auth::routes();
 Route::resource('/blog',PostsController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/search', [PostsController::class,'search']);
+Route::view('/users_page', 'users.users_page');
