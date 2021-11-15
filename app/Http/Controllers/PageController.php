@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
@@ -26,5 +27,15 @@ class PageController extends Controller
         $user->save();
         $message = "Profile Picture Updated";
         return redirect('/')->with('message',$message);
+    }
+    public function show_user_profile(Request $request){
+        $user = User::find($request->id);
+        if($user == ''){
+            return abort(404);
+        }
+        else{
+            return view('users.users_page',compact('user'));
+        }
+        
     }
 }

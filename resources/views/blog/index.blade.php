@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-6 col-12 my-auto">
                     <div class="blog_title">{{ $post->title }}</div>
-                    <div class="blog_by">By <span class="blog_by_user_name font-italic font-weight-bold">{{ $post->user->name }}</span>, Created On: {{ date('jS M Y', strtotime($post->updated_at)) }} </div>
+                    <div class="blog_by">By <a class="blog_by_user_name font-italic font-weight-bold" href="/users_page/{{ $post->user->id }}">{{ $post->user->name }}</a>, Created On: {{ date('jS M Y', strtotime($post->updated_at)) }} </div>
                     <div class="blog_description">
                         {{Str::limit($post->description, 300, $end='...')}}
                     </div>
@@ -50,7 +50,7 @@
                                     Keep Reading
                                 </a>
                             </div>
-                            <div class="col-md-4 col-12 d-sm-flex d-flex justify-content-md-between justify-content-end">
+                            <div class="col-md-4 col-12 d-sm-flex d-flex justify-content-end">
                                 @if (isset($post->user_id) && $post->user_id == Auth::id())
                                     <a class="btn btn-success rounded-pill text-uppercase mr-1" href="/blog/{{ $post->slug }}/edit">
                                         Edit

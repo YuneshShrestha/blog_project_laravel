@@ -94,7 +94,14 @@ class PostsController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        return view('blog.show',compact('post'));
+        if($post==''){
+            return abort(404);
+        }
+        else{
+            return view('blog.show',compact('post'));
+        }
+        
+     
     }
 
     /**
@@ -106,7 +113,12 @@ class PostsController extends Controller
     public function edit($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        return view('blog.edit',compact('post'));
+        if($post==''){
+            return abort(404);
+        }
+        else{
+            return view('blog.edit',compact('post'));
+        }
     }
 
     /**
