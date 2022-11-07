@@ -9,7 +9,7 @@
             
             <div class="show_blog_by">By <span class="blog_by_user_name font-italic font-weight-bold">{{ $post->user->name }}</span>, Created On: {{ date('jS M Y', strtotime($post->updated_at)) }} </div>
             <div class="show_blog_description">
-                {{ $post->description }}
+                {!! $post->description !!} 
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
                    
                   </div>
             </div>
-            
+            {{--  --}}
         </form>
         @if (Auth::check())
             <a class="btn btn-outline-primary w-100 rounded-pill" href="/blog/create">Create Post</a>
@@ -40,7 +40,7 @@
                     <div class="blog_title">{{ $post->title }}</div>
                     <div class="blog_by">By <a class="blog_by_user_name font-italic font-weight-bold" href="/users_page/{{ $post->user->id }}">{{ $post->user->name }}</a>, Created On: {{ date('jS M Y', strtotime($post->updated_at)) }} </div>
                     <div class="blog_description">
-                        {{Str::limit($post->description, 300, $end='...')}}
+                        {{{ Str::limit($post->description, 300, $end='...') }}}
                     </div>
                     <div class="blog_btn">
                         <div class="row gy-2">

@@ -13,8 +13,7 @@
                 <p class="text-danger">{{ $message }}</p>
              @enderror
               <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Description..." id="floatingTextarea2" style="height: 100px" name="description">{{ $post->description }}</textarea>
-                <label for="floatingTextarea2">Description</label>
+                <textarea class="form-control" id="editor" style="height: 100px" name="description">{!! $post->description !!}</textarea>
               </div>
               @error('description')
                 <p class="text-danger">{{ $message }}</p>

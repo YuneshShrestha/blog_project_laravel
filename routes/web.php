@@ -21,6 +21,8 @@ Route::put('/update_profile/{id}',[PageController::class,'update_profile']);
 Auth::routes();
 
 Route::resource('/blog',PostsController::class);
+Route::post('/upload',[PostsController::class,'uploadImage'])->name('ckeditor.upload');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/search', [PostsController::class,'search']);
 Route::get('/users_page/{id}', [PageController::class, 'show_user_profile'])->where('id','[0-9]+');;
+// 

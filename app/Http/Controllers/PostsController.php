@@ -84,6 +84,16 @@ class PostsController extends Controller
        ];
        return redirect('/blog')->with('message', $message);
     }
+    public function uploadImage(Request $request){
+        $image = $request->file('upload');
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+        $url = asset('images/'.$imageName);
+        $msg = 'Image uploaded successfully';
+        $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+        return response($response);
+    }
 
     /**
      * Display the specified resource.
